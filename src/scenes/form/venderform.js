@@ -34,7 +34,7 @@ const VenderForm = () => {
               gap="30px"
               gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
-                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
+                "& > div": { gridColumn: isNonMobile ? undefined : "span 4" }
               }}
             >
               <TextField
@@ -48,7 +48,7 @@ const VenderForm = () => {
                 name="firstName"
                 error={!!touched.firstName && !!errors.firstName}
                 helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
@@ -61,7 +61,7 @@ const VenderForm = () => {
                 name="lastName"
                 error={!!touched.lastName && !!errors.lastName}
                 helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
@@ -74,7 +74,7 @@ const VenderForm = () => {
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
@@ -87,7 +87,7 @@ const VenderForm = () => {
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
@@ -100,7 +100,7 @@ const VenderForm = () => {
                 name="address1"
                 error={!!touched.address && !!errors.address}
                 helperText={touched.address && errors.address}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
@@ -113,10 +113,10 @@ const VenderForm = () => {
                 name="password"
                 error={!!touched.password && !!errors.password}
                 helperText={touched.password && errors.password}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
             </Box>
-            <Box display="flex" justifyContent="end" mt="20px">
+            <Box display="flex" justifyContent="center" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
                 Create New Vender
               </Button>

@@ -4,7 +4,7 @@ import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
 
-const Form = () => {
+const SignIn = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <Box m="20px">
-      <Header title="PROFILE" subtitle="User Profile" />
+      <Header title="LOG IN" subtitle="......." />
 
       <Formik
         onSubmit={handleFormSubmit}
@@ -30,39 +30,15 @@ const Form = () => {
         }) => (
           <form onSubmit={handleSubmit}>
             <Box
+              justifyContent="center"
+              alignItems="center"
               display="grid"
               gap="30px"
-              gridTemplateColumns="repeat(5, minmax(0, 1fr))"
+              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
               sx={{
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
             >
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="First Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName}
-                helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Last Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName}
-                helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
-              />
               <TextField
                 fullWidth
                 variant="filled"
@@ -74,38 +50,25 @@ const Form = () => {
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
-                type="text"
-                label="Contact Number"
+                type="password"
+                label="Password"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.contact}
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
+                sx={{ gridColumn: "span 3" }}
               />
             </Box>
-            <Box display="flex" justifyContent="start" mt="20px">
+            <Box display="flex" justifyContent="center" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                UPDATE
+                Log In
               </Button>
             </Box>
           </form>
@@ -135,6 +98,7 @@ const initialValues = {
   email: "",
   contact: "",
   address1: "",
+  address2: "",
 };
 
-export default Form;
+export default SignIn;

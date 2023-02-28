@@ -16,6 +16,8 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 import PersonIcon from '@mui/icons-material/Person';
 const Item = ({ title, to, icon, selected, setSelected }) => {
@@ -142,13 +144,20 @@ const Sidebar = () => {
             <Item
               title="Vendor Registration"
               to="/venderform"
-              icon={<PersonOutlinedIcon />}
+              icon={<AppRegistrationIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+               <Item
+              title="Vender Information"
+              to="/contacts"
+              icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Sign In"
-              to="/venderform"
+              to="/signin"
               icon={<PersonIcon/>}
               selected={selected}
               setSelected={setSelected}
@@ -161,6 +170,21 @@ const Sidebar = () => {
             >
               Data
             </Typography>
+            
+            <Item
+              title="Products"
+              to="/product"
+              icon={<ProductionQuantityLimitsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Create Product"
+              to="/create"
+              icon={<ProductionQuantityLimitsOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
             <Item
               title="Manage"
               to="/team"
@@ -168,13 +192,7 @@ const Sidebar = () => {
               selected={selected}
               setSelected={setSelected}
             />
-            <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
+         
             <Item
               title="Invoices Balances"
               to="/invoices"
