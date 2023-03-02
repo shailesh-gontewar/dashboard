@@ -6,11 +6,12 @@ import Header from "../../components/Header";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 const category = [
-    { label: 'Electronic' },
-    { label: 'Fashion', },
-    { label: 'Furniture' },
-    { label: 'Groceries' },
-    { label: 'Cloth' }]
+  { label: "Electronic" },
+  { label: "Fashion" },
+  { label: "Furniture" },
+  { label: "Groceries" },
+  { label: "Cloth" },
+];
 const CreateProduct = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
@@ -48,7 +49,7 @@ const CreateProduct = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Name"
+                label="Product Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.firstName}
@@ -63,12 +64,15 @@ const CreateProduct = () => {
                 options={category}
                 sx={{ gridColumn: "span 2" }}
                 renderInput={(params) => (
-                  <TextField {...params} label="Select Category"  variant="filled"
-                  type="text"/>
+                  <TextField
+                    {...params}
+                    label="Select Category"
+                    variant="filled"
+                    type="text"
+                  />
                 )}
               />
-              <Stack alignItems="center" spacing={2} >
-             
+              <Stack alignItems="center" spacing={2}>
                 <Button variant="contained" component="label" color="secondary">
                   Select File
                   <input hidden accept="image/*" multiple type="file" />
@@ -76,11 +80,8 @@ const CreateProduct = () => {
               </Stack>
               <TextField
                 fullWidth
-                
-          multiline
-          rows={4}
-          
-        
+                multiline
+                rows={4}
                 variant="filled"
                 type="text"
                 label="Description"
@@ -95,7 +96,7 @@ const CreateProduct = () => {
               <TextField
                 fullWidth
                 variant="filled"
-                type="text"
+                type="number"
                 label="Sale Price"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -103,6 +104,32 @@ const CreateProduct = () => {
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="number"
+                label="Discounted Price"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.contact}
+                name="contact"
+                error={!!touched.contact && !!errors.contact}
+                helperText={touched.contact && errors.contact}
+                sx={{ gridColumn: "span 2" }}
+              />
+              <TextField
+                fullWidth
+                variant="filled"
+                type="number"
+                label="Max order qty"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.address1}
+                name="address1"
+                error={!!touched.address1 && !!errors.address1}
+                helperText={touched.address1 && errors.address1}
                 sx={{ gridColumn: "span 2" }}
               />
               <TextField

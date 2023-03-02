@@ -7,18 +7,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
 import { useContext } from "react";
 import { ColorModeContext, tokens } from "../../theme";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import PasswordIcon from "@mui/icons-material/Password";
 import { NavLink } from "react-router-dom";
 export default function Navbar() {
   const theme = useTheme();
@@ -47,12 +44,7 @@ export default function Navbar() {
           display="flex"
           backgroundColor={colors.primary[400]}
           borderRadius="3px"
-        >
-          <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-          <IconButton type="button" sx={{ p: 1 }}>
-            <SearchIcon />
-          </IconButton>
-        </Box>
+        ></Box>
         <Box display="flex">
           <IconButton onClick={colorMode.toggleColorMode}>
             {theme.palette.mode === "dark" ? (
@@ -63,9 +55,6 @@ export default function Navbar() {
           </IconButton>
           <IconButton>
             <NotificationsOutlinedIcon />
-          </IconButton>
-          <IconButton>
-            <SettingsOutlinedIcon />
           </IconButton>
           <Tooltip title="Account settings">
             <IconButton
@@ -116,21 +105,26 @@ export default function Navbar() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-          <NavLink to="/form" style={{textDecoration:'none' ,color:"inherit"}}>
-        <MenuItem onClick={handleClose}>
-            <Avatar /> Profile
-        </MenuItem>
-          </NavLink>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
+        <NavLink
+          to="/venderprofile"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <MenuItem onClick={handleClose}>
+            <Avatar /> My Account
+          </MenuItem>
+        </NavLink>
+        <NavLink
+          to="/changepassword"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <PasswordIcon />
+            </ListItemIcon>{" "}
+            Change Password
+          </MenuItem>
+        </NavLink>
         <Divider />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <PersonAdd fontSize="small" />
-          </ListItemIcon>
-          Add another account
-        </MenuItem>
         <MenuItem onClick={handleClose}>
           <ListItemIcon>
             <Settings fontSize="small" />

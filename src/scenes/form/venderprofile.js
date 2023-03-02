@@ -1,10 +1,11 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField,Stack } from "@mui/material";
 import { Formik } from "formik";
 import * as yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import Avatar from '@mui/material/Avatar';
 
-const VenderForm = () => {
+const VenderProfile = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
@@ -12,9 +13,16 @@ const VenderForm = () => {
   };
 
   return (
-    <Box sx={{ m: 3 }}>
-      <Header title="CREATE VENDER" subtitle="Create a New Vender Profile" />
-
+    <Box m="20px">
+      <Header title="PROFILE" subtitle="User Profile" />
+      <Stack direction="row" spacing={2}>
+      <Avatar
+      variant="rounded"
+        alt="user"
+        src="../../assets/user1.jpg"
+        sx={{ width: 86, height: 86 ,m:2}}
+      />
+    </Stack>
       <Formik
         onSubmit={handleFormSubmit}
         initialValues={initialValues}
@@ -32,7 +40,7 @@ const VenderForm = () => {
             <Box
               display="grid"
               gap="30px"
-              gridTemplateColumns="repeat(4, minmax(0, 1fr))"
+              gridTemplateColumns="repeat(5, minmax(0, 1fr))"
               sx={{
                 "& > div": { gridColumn: isNonMobile ? undefined : "span 4" },
               }}
@@ -44,24 +52,24 @@ const VenderForm = () => {
                 label="Business Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.firstName}
-                name="BusinessName"
-                error={!!touched.BusinessName && !!errors.BusinessName}
-                helperText={touched.BusinessName && errors.BusinessName}
-                sx={{ gridColumn: "span 3" }}
+                value={values.businessname}
+                name="businessname"
+                error={!!touched.businessname && !!errors.businessname}
+                helperText={touched.businessname && errors.businessname}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Contact Person"
+                label="Contect Name"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.contectperson}
                 name="contectperson"
                 error={!!touched.contectperson && !!errors.contectperson}
                 helperText={touched.contectperson && errors.contectperson}
-                sx={{ gridColumn: "span 3" }}
+                sx={{ gridColumn: "span 2" }}
               />
               <TextField
                 fullWidth
@@ -74,12 +82,12 @@ const VenderForm = () => {
                 name="email"
                 error={!!touched.email && !!errors.email}
                 helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 3" }}
+                sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
                 variant="filled"
-                type="number"
+                type="text"
                 label="Contact Number"
                 onBlur={handleBlur}
                 onChange={handleChange}
@@ -87,7 +95,7 @@ const VenderForm = () => {
                 name="contact"
                 error={!!touched.contact && !!errors.contact}
                 helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 3" }}
+                sx={{ gridColumn: "span 4" }}
               />
               <TextField
                 fullWidth
@@ -96,29 +104,16 @@ const VenderForm = () => {
                 label="Address"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address}
+                value={values.address1}
                 name="address"
                 error={!!touched.address && !!errors.address}
                 helperText={touched.address && errors.address}
-                sx={{ gridColumn: "span 3" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="password"
-                label="password"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.password}
-                name="password"
-                error={!!touched.password && !!errors.password}
-                helperText={touched.password && errors.password}
-                sx={{ gridColumn: "span 3" }}
+                sx={{ gridColumn: "span 4" }}
               />
             </Box>
             <Box display="flex" justifyContent="start" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
-                Create New Vender
+                UPDATE
               </Button>
             </Box>
           </form>
@@ -132,7 +127,7 @@ const phoneRegExp =
   /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 const checkoutSchema = yup.object().shape({
-  BusinessName: yup.string().required("required"),
+  businessname: yup.string().required("required"),
   contectperson: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   contact: yup
@@ -140,15 +135,13 @@ const checkoutSchema = yup.object().shape({
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
   address: yup.string().required("required"),
-  password: yup.string().required("required"),
 });
 const initialValues = {
-  BusinessName: "",
+  businessname: "",
   contectperson: "",
   email: "",
   contact: "",
   address: "",
-  password: "",
 };
 
-export default VenderForm;
+export default VenderProfile;
